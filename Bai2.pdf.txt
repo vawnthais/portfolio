@@ -1,0 +1,234 @@
+--- Page 1 ---
+BÁO CÁO: KỸ NĂNG TÌM KIẾM VÀ ĐÁNH 
+GIÁ THÔNG TIN HỌC THUẬT 
+Họ và tên: Đỗ Văn Thái 
+Mã sinh viên: 25024167 
+Lớp: K70-DS2 
+Chuyên ngành: Khoa học dữ liệu (Data Science) 
+I. LỰA CHỌN CHỦ ĐỀ VÀ PHẠM VI TÌM KIẾM 
+1. Chủ đề lựa chọn 
+● Tên chủ đề: Quy trình và các phương pháp tối ưu hóa việc biến đổi dữ liệu thô thành 
+thông tin có giá trị (Data Transformation) trong kỹ thuật dữ liệu hiện đại. 
+● Lý do chọn chủ đề:  
+1. Tính cốt lõi của ngành học: Việc biến đổi dữ liệu từ dạng thô (nhiễu, không cấu trúc) 
+sang dạng có ích (sạch, có cấu trúc) là nhiệm vụ quan trọng nhất. 
+2. Giá trị thực tiễn: Trong môi trường doanh nghiệp, dữ liệu chỉ có giá trị khi nó được 
+chuyển hóa thành "actionable insights" (thông tin có thể dùng để ra quyết định). Việc 
+nghiên cứu các phương pháp như ETL (Extract-Transform-Load) hay ELT là vô cùng cần 
+thiết. 
+3. Tính cập nhật và thách thức: Sự dịch chuyển từ các kho dữ liệu truyền thống sang kiến 
+trúc Cloud (Snowflake, BigQuery) và các công cụ biến đổi dữ liệu mới (như dbt) đặt ra 
+nhiều thách thức về hiệu suất và chi phí xử lý dữ liệu lớn. 
+2. Phạm vi tìm kiếm 
+● Thời gian: từ năm 2018 đến năm 2026 
+● Ngôn ngữ: Tiếng Việt và Tiếng Anh 
+● Từ khóa tìm kiếm: 
+○ Tiếng Việt: Quy trình biến đổi dữ liệu, Kỹ thuật dữ liệu, ETL và ELT, Làm sạch dữ liệu. 
+○ Tiếng Anh: Data Transformation methodologies, Data Engineering pipelines, Modern 
+Data Stack, Data Wrangling, dbt (data build tool). 
+II. QUY TRÌNH TÌM KIẾM THÔNG TIN 
+Tôi đã thực hiện khai thác thông tin qua 4 loại nguồn để đảm bảo tính khách quan và chiều sâu: 
+1. Cơ sở dữ liệu học thuật: Truy cập Google Scholar và Elicit để tìm kiếm các bài báo khoa 
+--- Page 2 ---
+học về thuật toán xử lý dữ liệu và kiến trúc hệ thống. 
+2. Tạp chí khoa học chuyên ngành: Nghiên cứu các ấn phẩm từ IEEE Transactions on 
+Knowledge and Data Engineering và Journal of Big Data. 
+3. Sách chuyên khảo: Tham khảo các đầu sách kinh điển như "Designing Data-Intensive 
+Applications" (Martin Kleppmann) để hiểu về nguyên lý hệ thống. 
+4. Nguồn mở trên Internet: Theo dõi các báo cáo xu hướng từ Gartner (Hype Cycle for 
+Data Management) và các blog kỹ thuật của các công ty công nghệ lớn như Netflix 
+Engineering, Airbnb Data. 
+III. BẢNG TỔNG HỢP VÀ ĐÁNH GIÁ ĐỘ TIN CẬY CỦA 
+CÁC NGUỒN THÔNG TIN 
+CÁC NGUỒN THÔNG TIN 
+STT Loại nguồn Tên tài liệu Tác giả/Tổ 
+chức 
+Đánh giá 
+độ tin cậy 
+Xếp hạng 
+1 Bài báo Performanc
+e and 
+Scalability 
+of Data 
+Cleaning 
+Tools 
+MDPI 
+(2025) 
+Nghiên cứu 
+thực 
+nghiệm mới 
+nhất, 
+phương 
+pháp đo 
+lường 
+(Benchmark
+) cực kỳ chi 
+tiết. 
+Rất cao 
+2 Bài báo Towards 
+Next 
+Generation 
+Data 
+Engineering 
+Pipelines 
+Kramer et 
+al. (2025) 
+Công bố 
+trên arXiv, 
+đưa ra tầm 
+nhìn về 
+Pipeline tự 
+thích ứng 
+(Self-
+adapting). 
+Rất cao 
+3 Bài báo Modern 
+Data 
+Chen et al. 
+(2023) 
+Đăng trên 
+IEEE, tổng 
+Rất cao 
+--- Page 3 ---
+Engineering
+: A Review 
+hợp toàn 
+diện các 
+công nghệ 
+biến đổi dữ 
+liệu Cloud-
+native. 
+4 Bài báo Revolutioniz
+ing Data 
+Transforma
+tion with 
+GenAI 
+Chintala 
+(2023) 
+Nghiên cứu 
+cách AI tự 
+động hóa 
+việc ánh xạ 
+Schema và 
+chuẩn hóa 
+dữ liệu. 
+Cao 
+5 Sách Fundament
+als of Data 
+Engineering 
+Reis & 
+Housley 
+(2022) 
+Nhà xuất 
+bản O'Reilly, 
+cung cấp 
+khung tư 
+duy chuẩn 
+về vòng đời 
+dữ liệu. 
+Cao 
+6 Sách Designing 
+Data-
+Intensive 
+Application
+s 
+Martin 
+Kleppmann 
+"Kinh thánh" 
+về hệ thống 
+dữ liệu, giải 
+thích sâu về 
+tính toàn 
+vẹn khi biến 
+đổi. 
+Rất cao 
+7 Internet Magic 
+Quadrant 
+for Data 
+Integration 
+Tools 
+Gartner 
+(2023) 
+Đánh giá 
+khách quan 
+các công 
+cụ biến đổi 
+dữ liệu hàng 
+đầu thị 
+trường. 
+Cao 
+8 Internet The State of 
+Analytics 
+dbt Labs Báo cáo 
+thực tế về 
+Cao 
+--- Page 4 ---
+Engineering 
+2024 
+cách 73% 
+doanh 
+nghiệp hiện 
+nay đang 
+biến đổi dữ 
+liệu. 
+9 Internet The 
+Dataflow 
+Model: 
+Guide to 
+Data 
+Transforma
+tion 
+Google 
+Cloud 
+Whitepaper 
+kỹ thuật về 
+mô hình 
+biến đổi dữ 
+liệu Batch & 
+Streaming. 
+Cao 
+10 Internet ETL vs ELT: 
+Modern 
+Data 
+Integration 
+AWS (2024) So sánh 
+chuyên sâu 
+các phương 
+pháp xử lý 
+dữ liệu hiện 
+đại trên 
+Cloud. 
+Cao 
+IV. DANH MỤC TÀI LIỆU THAM KHẢO 
+1. MDPI, 2025. Performance and Scalability of Data Cleaning and Preprocessing Tools. Data 
+Journal, 10(5), pp.68-85. 
+2. Kramer, K.M. et al., 2025. Towards Next Generation Data Engineering Pipelines. arXiv 
+preprint arXiv:2507.13892. 
+3. Chen, Z. et al., 2023. Modern Data Engineering: A Review of Trends and Technologies. IEEE 
+Transactions on Knowledge and Data Engineering, 35(1), pp.45-62. 
+4. Chintala, S., 2023. Analytical Study on Revolutionizing Data Transformation with 
+Generative AI in Data Engineering. International Journal of Enhanced Research, 12(2), 
+pp.80-88. 
+5. Reis, J. and Housley, M., 2022. Fundamentals of Data Engineering. Sebastopol: O'Reilly 
+Media. 
+6. Kleppmann, M., 2017. Designing Data-Intensive Applications. Sebastopol: O'Reilly Media. 
+7. Gartner, 2023. Magic Quadrant for Data Integration Tools. Stamford: Gartner Inc. 
+8. dbt Labs, 2024. The State of Analytics Engineering. [online] Available at: 
+https://www.getdbt.com/state-of-analytics-engineering-2024/ [Accessed 13 March 
+--- Page 5 ---
+2026]. 
+9. Google Cloud, 2023. The Dataflow Model: A Practical Guide to Data Transformation. 
+[online] Available at: https://cloud.google.com/dataflow/whitepapers [Accessed 13 March 
+2026]. 
+10. AWS, 2024. ETL vs ELT – The Difference Between Data Processing Methods. [online] 
+Available at: https://aws.amazon.com/vi/compare/the-difference-between-etl-and-elt/ 
+[Accessed 13 March 2026].  
+V. KẾT LUẬN VÀ BÀI HỌC RÚT RA 
+● Kết quả: Việc biến đổi dữ liệu không chỉ là kỹ thuật mà là một quy trình mang tính chiến 
+lược, kết hợp giữa thuật toán và hiểu biết về nghiệp vụ kinh doanh. 
+● Khó khăn: Nguồn thông tin trên mạng rất nhiều nhưng thường mang tính quảng cáo sản 
+phẩm. Tôi đã học được cách kiểm chứng thông tin thông qua việc so sánh các bài báo 
+nghiên cứu (Research Papers) với các báo cáo thực tế của doanh nghiệp. 
+● Tầm quan trọng: Sử dụng nguồn tin học thuật giúp tôi nắm vững bản chất của vấn đề 
+thay vì chỉ học cách sử dụng công cụ, điều này rất quan trọng cho sự nghiệp Data 
+Engineer lâu dài. 

@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tìm kiếm và đánh giá thông tin học thuật — Đỗ Văn Thái</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      /* Main background: pure white */
+      --bg-section-alt: #f8fafc;
+      /* Light gray background for alternation */
+      --bg-card: #ffffff;
+      /* White cards */
+      --bg-card-hover: #ffffff;
+      --border: #000000;
+      /* Bold black borders */
+      --border-muted: #e2e8f0;
+      /* Muted gray borders for inner layouts */
+      --text: #000000;
+      /* Pure black text */
+      --muted: #475569;
+      /* Slate-600 for descriptions */
+      --muted-dark: #64748b;
+      /* Slate-500 */
+      --accent: #000000;
+      /* Pure black primary accents */
+      --accent-light: #f1f5f9;
+      --text-dark-bg: #ffffff;
+      /* Text color on dark backgrounds */
+
+      --font-display: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Hide AI-like background containers if left in HTML */
+    .cursor-glow,
+    #particles-canvas,
+    .hero-bg,
+    .hero-grid {
+      display: none !important;
+    }
+
+    /* === NAV === */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0.9rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-logo span {
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-badge {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: #ffffff;
+      background: #000000;
+      border: 1px solid #000000;
+      padding: 0.3rem 0.85rem;
+      border-radius: 4px;
+      letter-spacing: 0.02em;
+      font-weight: 600;
+    }
+
+    /* === HERO === */
+    .hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 2rem 4rem;
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1000px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.1s forwards;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+    }
+
+    .hero-name {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2.8rem, 6.5vw, 5.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+      opacity: 0;
+      animation: fadeUp 0.6s 0.25s forwards;
+    }
+
+    .hero-name .line2 {
+      display: block;
+      color: var(--text);
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 580px;
+      margin-bottom: 3rem;
+      line-height: 1.6;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.4s forwards;
+    }
+
+    .hero-desc strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.5s forwards;
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      box-shadow: 4px 4px 0px #000000;
+      padding: 0.75rem 1.25rem;
+      border-radius: 4px;
+      min-width: 140px;
+      transition: all 0.2s ease;
+    }
+
+    .meta-item:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 5px 5px 0px #000000;
+    }
+
+    .meta-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.15rem;
+      font-weight: 500;
+    }
+
+    .meta-value {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: fadeIn 1s 1s forwards;
+    }
+
+    .hero-scroll span {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 2rem;
+      background: var(--border);
+    }
+
+    /* === SECTIONS === */
+    section {
+      position: relative;
+      z-index: 1;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text);
+      letter-spacing: 0.05em;
+      font-weight: 700;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.8rem;
+      letter-spacing: -0.015em;
+      color: var(--text);
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* === PROJECTS === */
+    #projects {
+      padding: 6rem 0;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .project-card {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 2.2rem;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 4px 4px 0px #000000;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .project-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px #000000;
+    }
+
+    .card-num {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .card-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      letter-spacing: 0.02em;
+      margin-bottom: 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: fit-content;
+      font-weight: 600;
+    }
+
+    .card-tag::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .tag-sys::before {
+      background: #3b82f6;
+    }
+
+    /* Blue */
+    .tag-data::before {
+      background: #06b6d4;
+    }
+
+    /* Cyan */
+    .tag-ai::before {
+      background: #6366f1;
+    }
+
+    /* Indigo */
+    .tag-collab::before {
+      background: #10b981;
+    }
+
+    /* Emerald */
+    .tag-ethics::before {
+      background: #ef4444;
+    }
+
+    /* Red */
+
+    .card-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.25rem;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 0.8rem;
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: auto;
+    }
+
+    .skill-chip {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--muted);
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      letter-spacing: 0.02em;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+
+    .project-card:hover .skill-chip {
+      border-color: var(--border);
+      color: var(--text);
+      background: #ffffff;
+    }
+
+    /* === CARD INNER METADATA (Code blocks, Tables, Lists override) === */
+    .portfolio-meta-section {
+      background: #f8fafc !important;
+      border: 1px solid #e2e8f0 !important;
+      border-radius: 4px !important;
+      padding: 0.85rem !important;
+      margin-top: 1rem !important;
+      color: #000000 !important;
+    }
+
+    .portfolio-meta-section strong {
+      font-size: 0.85rem !important;
+      color: #000000 !important;
+    }
+
+    .portfolio-meta-section pre {
+      background: #0f172a !important;
+      border: 1px solid #1e293b !important;
+      color: #f8fafc !important;
+      padding: 0.75rem !important;
+      border-radius: 4px !important;
+      font-size: 0.82rem !important;
+      line-height: 1.45 !important;
+    }
+
+    .portfolio-meta-section table {
+      margin-top: 0.75rem !important;
+      font-size: 0.82rem !important;
+      border: 1px solid #e2e8f0 !important;
+      border-collapse: collapse !important;
+      width: 100% !important;
+    }
+
+    .portfolio-meta-section table th {
+      color: #000000 !important;
+      font-weight: 700 !important;
+      border-bottom: 2px solid #000000 !important;
+      background: #f1f5f9 !important;
+      padding: 0.5rem 0.4rem !important;
+    }
+
+    .portfolio-meta-section table tr {
+      border-bottom: 1px solid #e2e8f0 !important;
+    }
+
+    .portfolio-meta-section table td {
+      padding: 0.5rem 0.4rem !important;
+      color: #334155 !important;
+    }
+
+    .portfolio-meta-section table tbody tr:last-child {
+      border-bottom: none !important;
+    }
+
+    .portfolio-meta-section ul,
+    .portfolio-meta-section ol {
+      color: #334155 !important;
+      font-size: 0.85rem !important;
+    }
+
+    .portfolio-meta-section li {
+      margin-bottom: 0.4rem !important;
+    }
+
+    .portfolio-meta-section li strong {
+      color: #000000 !important;
+    }
+
+    .project-card img {
+      border: 1px solid var(--border) !important;
+      border-radius: 4px !important;
+      transition: opacity 0.2s ease;
+      margin-top: 1rem;
+    }
+
+    .project-card img:hover {
+      opacity: 0.95;
+    }
+
+    .detail-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.88rem;
+      border: 2px solid var(--border);
+      box-shadow: 4px 4px 0px #000000;
+      background: #ffffff;
+    }
+
+    .detail-content th {
+      background: var(--accent-light);
+      color: var(--text);
+      font-family: var(--font-display);
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+      border-right: 1px solid var(--border-muted);
+      padding: 0.65rem 0.85rem;
+      text-align: left;
+    }
+
+    .detail-content th:last-child {
+      border-right: none;
+    }
+
+    .detail-content td {
+      padding: 0.65rem 0.85rem;
+      border-bottom: 1px solid var(--border-muted);
+      border-right: 1px solid var(--border-muted);
+      color: var(--muted);
+      font-family: var(--font-body);
+      line-height: 1.5;
+    }
+
+    .detail-content td:last-child {
+      border-right: none;
+    }
+
+    .detail-content tr:last-child td {
+      border-bottom: none;
+    }
+
+    .detail-content tr:hover td {
+      background: var(--accent-light);
+      color: var(--text);
+    }
+
+    /* === SKILLS === */
+    #skills {
+      padding: 6rem 0;
+      background: var(--bg);
+    }
+
+    .skills-layout {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+    }
+
+    .skills-intro p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-top: 1rem;
+    }
+
+    .skill-group {
+      margin-bottom: 2.2rem;
+    }
+
+    .skill-group-title {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border);
+      font-weight: 700;
+    }
+
+    .skill-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .skill-bar {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .skill-name {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .bar-track {
+      height: 8px;
+      background: #f1f5f9;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid #e2e8f0;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: #000000;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .bar-fill.animate {
+      transform: scaleX(1);
+    }
+
+    .bar-fill.green {
+      background: #0f766e;
+      /* Solid Teal-700 */
+    }
+
+    .bar-fill.cyan {
+      background: #0891b2;
+      /* Solid Cyan-700 */
+    }
+
+    /* === ABOUT === */
+    #about {
+      padding: 6rem 0;
+      background: var(--bg-section-alt);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-layout {
+      max-width: 720px;
+    }
+
+    .intro-block {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border-muted);
+    }
+
+    .intro-block:last-of-type {
+      border-bottom: none;
+    }
+
+    .intro-block-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .about-text p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .about-text p strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .intro-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .intro-list li {
+      display: flex;
+      gap: 0.8rem;
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .intro-list li::before {
+      content: '→';
+      color: var(--text);
+      font-family: var(--font-mono);
+      flex-shrink: 0;
+      font-weight: 700;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .stat-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      box-shadow: 3px 3px 0px #000000;
+      padding: 1.2rem 1rem;
+      border-radius: 4px;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .stat-box:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0px #000000;
+    }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .stat-label {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* === PRINCIPLES === */
+    #principles {
+      padding: 6rem 0;
+      background: var(--bg);
+    }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .principle-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 2.2rem;
+      border-radius: 4px;
+      position: relative;
+      box-shadow: 4px 4px 0px #000000;
+      transition: all 0.3s ease;
+    }
+
+    .principle-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px #000000;
+    }
+
+    .principle-num {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1;
+      color: rgba(0, 0, 0, 0.03);
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      pointer-events: none;
+    }
+
+    .principle-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      background: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .principle-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .principle-text {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* === SUMMARY === */
+    #summary {
+      padding: 6rem 0;
+      background: var(--bg-section-alt);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    #summary .section-title {
+      color: var(--text);
+    }
+
+    #summary .section-num {
+      color: var(--text);
+    }
+
+    #summary .section-line {
+      background: var(--border);
+    }
+
+    #summary .intro-block-label {
+      color: var(--text);
+    }
+
+    #summary .intro-block {
+      border-bottom-color: var(--border-muted);
+    }
+
+    #summary p {
+      color: var(--muted);
+    }
+
+    #summary p strong {
+      color: var(--text);
+    }
+
+    #summary .intro-list li {
+      color: var(--muted);
+    }
+
+    #summary .intro-list li::before {
+      color: var(--text);
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .summary-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      box-shadow: 3px 3px 0px #000000;
+      padding: 1.2rem;
+      border-radius: 4px;
+    }
+
+    .summary-icon {
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 4px;
+      background: #f1f5f9 !important;
+      color: #000000 !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      border: 1px solid #e2e8f0;
+    }
+
+    .summary-item-title {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .summary-item-text {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .summary-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      box-shadow: 4px 4px 0px #000000;
+      border-radius: 4px;
+      padding: 1.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .summary-box-title {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Card 6 Pill Items styling */
+    .card-item-pill {
+      background: #f8fafc;
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+      border-left: 3px solid #000000;
+      border-right: 1px solid #e2e8f0;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      color: #000000;
+      margin-bottom: 0.65rem;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    .card-item-pill strong {
+      color: #000000;
+    }
+
+    /* === FOOTER === */
+    footer {
+      padding: 4rem 2rem;
+      background: var(--bg-dark);
+      color: var(--text-dark-bg);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-left h3 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.35rem;
+    }
+
+    .footer-left p {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.6);
+      letter-spacing: 0.02em;
+    }
+
+    .footer-right {
+      text-align: right;
+    }
+
+    .footer-mssv {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-school {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* === ANIMATIONS === */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.08s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.16s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.24s;
+    }
+
+    .reveal-delay-4 {
+      transition-delay: 0.32s;
+    }
+
+    /* === REFINED INTERACTIVE EFFECTS === */
+
+    /* Nav link hover slide underline */
+    .nav-links a {
+      position: relative;
+      padding: 0.3rem 0;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--text);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    /* Nav Badge live pulse indicator */
+    .nav-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      animation: badgeStatusPulse 2.2s infinite;
+    }
+
+    @keyframes badgeStatusPulse {
+      0% {
+        transform: scale(0.92);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      }
+
+      70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 5px rgba(16, 185, 129, 0);
+      }
+
+      100% {
+        transform: scale(0.92);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+      }
+    }
+
+    /* Hero scroll line slide down animation */
+    .scroll-line {
+      animation: heroScrollAnimation 2.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    }
+
+    @keyframes heroScrollAnimation {
+      0% {
+        transform: scaleY(0);
+        transform-origin: top;
+      }
+
+      45% {
+        transform: scaleY(1);
+        transform-origin: top;
+      }
+
+      55% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+      }
+
+      100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+      }
+    }
+
+    /* Project Card image subtle zoom */
+    .project-card img {
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.012);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Pulse tag dot on card hover */
+    .project-card:hover .card-tag::before {
+      animation: tagDotPulse 1.2s ease infinite alternate;
+    }
+
+    @keyframes tagDotPulse {
+      0% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+
+      100% {
+        transform: scale(1.4);
+        opacity: 1;
+      }
+    }
+
+    /* Principle card background glow and icon hover */
+    .principle-card {
+      overflow: hidden;
+    }
+
+    .principle-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at top right, rgba(0, 0, 0, 0.02), transparent 65%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .principle-card:hover::after {
+      opacity: 1;
+    }
+
+    .principle-card:hover .principle-icon {
+      transform: scale(1.08);
+      background: #e2e8f0 !important;
+    }
+
+    .principle-icon {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+    }
+
+    /* Stat Box hover scale number */
+    .stat-box:hover .stat-num {
+      transform: translateY(-2px);
+      color: var(--accent);
+    }
+
+    .stat-num {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+    }
+
+    /* Skill progress bar hover track glow */
+    .skill-bar {
+      cursor: pointer;
+    }
+
+    .skill-bar:hover .bar-track {
+      border-color: var(--border);
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .bar-track {
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    /* === MINIMALIST NATURE BACKDROP === */
+    .bg-leaf {
+      position: fixed;
+      z-index: 0;
+      color: #000000;
+      opacity: 0.035;
+      /* Faint outline so it stays extremely minimalist and clean */
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .leaf-1 {
+      top: 12%;
+      left: 3%;
+      width: 140px;
+      height: 140px;
+      transform: rotate(-15deg);
+      animation: leafSway1 22s ease-in-out infinite alternate;
+    }
+
+    .leaf-2 {
+      top: 65%;
+      right: 5%;
+      width: 170px;
+      height: 170px;
+      transform: rotate(45deg);
+      animation: leafSway2 26s ease-in-out infinite alternate;
+    }
+
+    .leaf-3 {
+      bottom: 15%;
+      left: 6%;
+      width: 110px;
+      height: 110px;
+      transform: rotate(110deg);
+      animation: leafSway1 19s ease-in-out infinite alternate;
+    }
+
+    .leaf-4 {
+      top: 38%;
+      right: 8%;
+      width: 150px;
+      height: 150px;
+      transform: rotate(-75deg);
+      animation: leafSway3 24s ease-in-out infinite alternate;
+    }
+
+    @keyframes leafSway1 {
+      0% {
+        transform: rotate(-15deg) translateY(0) translateX(0);
+      }
+
+      50% {
+        transform: rotate(-10deg) translateY(-12px) translateX(6px);
+      }
+
+      100% {
+        transform: rotate(-20deg) translateY(6px) translateX(-6px);
+      }
+    }
+
+    @keyframes leafSway2 {
+      0% {
+        transform: rotate(45deg) translateY(0) rotate3d(1, 1, 0, 0deg);
+      }
+
+      50% {
+        transform: rotate(52deg) translateY(-18px) rotate3d(1, 1, 0, 6deg);
+      }
+
+      100% {
+        transform: rotate(38deg) translateY(12px) rotate3d(1, 1, 0, -6deg);
+      }
+    }
+
+    @keyframes leafSway3 {
+      0% {
+        transform: rotate(-75deg) scale(1);
+      }
+
+      50% {
+        transform: rotate(-68deg) scale(1.04) translateY(-8px);
+      }
+
+      100% {
+        transform: rotate(-82deg) scale(0.96) translateY(8px);
+      }
+    }
+
+    /* === RESPONSIVE LAYOUTS === */
+    @media (max-width: 968px) {
+      nav {
+        padding: 0.9rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+        /* simple hidden links on mobile for portfolio cleanliness */
+      }
+
+      .hero {
+        padding: 7rem 1.5rem 3rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .skills-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .about-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .principles-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+
+      .summary-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+
+      .summary-box {
+        margin-top: 1.2rem;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+      }
+
+      .footer-right {
+        text-align: left;
+      }
+    }
+
+    /* === DETAIL SUBPAGES === */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: #000000;
+      text-decoration: none;
+      border: 1px solid #000000;
+      padding: 0.4rem 0.9rem;
+      border-radius: 4px;
+      background: #ffffff;
+      box-shadow: 2px 2px 0px #000000;
+      transition: all 0.2s ease;
+      margin-top: 1.5rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .back-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px #000000;
+    }
+
+    .detail-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      max-width: 900px;
+      margin: 2rem auto 6rem;
+    }
+
+    .detail-content {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      box-shadow: 4px 4px 0px #000000;
+      padding: 2.5rem;
+      border-radius: 4px;
+    }
+
+    .detail-content h2 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: #000000;
+      margin-top: 1.8rem;
+      margin-bottom: 0.8rem;
+      border-bottom: 2px solid #000000;
+      padding-bottom: 0.3rem;
+    }
+
+    .detail-content h2:first-of-type {
+      margin-top: 0;
+    }
+
+    .detail-content h3 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: #000000;
+      margin-top: 1.2rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .detail-content p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .detail-content ul,
+    .detail-content ol {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .detail-content li {
+      margin-bottom: 0.4rem;
+    }
+
+    .detail-content strong {
+      color: #000000;
+    }
+
+    .detail-assets {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      box-shadow: 4px 4px 0px #000000;
+      padding: 2.5rem;
+      border-radius: 4px;
+    }
+
+    .detail-assets .card-desc {
+      margin-bottom: 0 !important;
+    }
+
+    @media (max-width: 968px) {
+      .detail-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .detail-assets {
+        position: relative;
+        top: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Minimalist Nature Background Motifs (Dynamic Swaying Line Art) -->
+  <div class="bg-leaf leaf-1">
+    <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+      <path d="M10 90 Q 50 80, 80 20" />
+      <path d="M80 20 Q 75 10, 70 20 Q 75 30, 80 20 Z" />
+      <path d="M60 40 Q 50 25, 45 35 Q 55 45, 60 40 Z" />
+      <path d="M63 37 Q 75 25, 78 35 Q 68 45, 63 37 Z" />
+      <path d="M40 60 Q 30 45, 25 55 Q 35 65, 40 60 Z" />
+      <path d="M43 57 Q 55 45, 58 55 Q 48 65, 43 57 Z" />
+    </svg>
+  </div>
+
+  <div class="bg-leaf leaf-2">
+    <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+      <path d="M10 90 Q 50 70, 90 60" />
+      <path d="M90 60 Q 82 52, 80 62 Q 87 70, 90 60 Z" />
+      <path d="M65 67 Q 55 52, 50 62 Q 60 72, 65 67 Z" />
+      <path d="M68 64 Q 78 52, 82 62 Q 72 72, 68 64 Z" />
+      <path d="M42 74 Q 32 59, 27 69 Q 37 79, 42 74 Z" />
+      <path d="M45 71 Q 55 59, 59 69 Q 49 79, 45 71 Z" />
+    </svg>
+  </div>
+
+  <div class="bg-leaf leaf-3">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+      <path d="M2 22C2 22 8 18 12 14C16 10 22 2 22 2C2 2 10 8 14 12C18 16 22 22 22 22" />
+      <path d="M12 14L16 16M9 17L11 19M15 11L18 12M17 7L20 8" />
+    </svg>
+  </div>
+
+  <div class="bg-leaf leaf-4">
+    <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+      <path d="M50 90 C 20 60, 20 40, 50 10 C 80 40, 80 60, 50 90 Z" />
+      <path d="M50 10 L 50 90" />
+      <path d="M50 30 L 65 40" />
+      <path d="M50 45 L 35 55" />
+      <path d="M50 60 L 68 70" />
+      <path d="M50 75 L 32 85" />
+    </svg>
+  </div>
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">ĐVT<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">Giới thiệu</a></li>
+      <li><a href="index.html#projects">Dự án</a></li>
+      <li><a href="index.html#skills">Kỹ năng</a></li>
+      <li><a href="index.html#principles">Nguyên tắc</a></li>
+      <li><a href="index.html#summary">Tổng kết</a></li>
+    </ul>
+    <span class="nav-badge">K70 · Data Science</span>
+  </nav>
+
+  <main style="padding-top: 6rem; position: relative; z-index: 1;">
+    <div class="container">
+      <a href="index.html" class="back-btn">← Quay lại trang chủ</a>
+
+      <div class="project-header" style="margin-top: 2rem; margin-bottom: 2rem;">
+        <div class="card-num" style="margin-bottom: 0.5rem;">BÀI 02 · Bài tập 2 — Mục 2.4</div>
+        <span class="card-tag tag-data" style="margin-bottom: 1rem;">Khai thác dữ liệu & thông tin</span>
+        <h1 class="hero-name"
+          style="font-size: clamp(2rem, 4.5vw, 3.2rem); margin-top: 0.5rem; margin-bottom: 0.5rem; line-height: 1.25;">
+          Tìm kiếm và đánh giá thông tin học thuật</h1>
+      </div>
+
+      <div class="detail-grid">
+        <!-- Left: PDF Detailed content -->
+        <div class="detail-content reveal">
+          <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; border-bottom: 2px solid #000; padding-bottom: 0.4rem;">
+            I. Lựa chọn chủ đề và phạm vi tìm kiếm</h2>
+
+          <h3 style="margin-top: 1rem;">1. Chủ đề lựa chọn</h3>
+          <ul>
+            <li><strong>Tên chủ đề:</strong> Quy trình và các phương pháp tối ưu hóa việc biến đổi dữ liệu thô thành
+              thông tin có giá trị (Data Transformation) trong kỹ thuật dữ liệu hiện đại.</li>
+            <li><strong>Lý do chọn chủ đề:</strong>
+              <ol style="margin-top: 0.5rem;">
+                <li>Tính cốt lõi của ngành học: Biến đổi dữ liệu từ dạng thô sang dạng có ích là nhiệm vụ quan trọng
+                  nhất.</li>
+                <li>Giá trị thực tiễn: Dữ liệu chỉ có giá trị khi chuyển hóa thành "actionable insights".</li>
+                <li>Tính cập nhật: Sự dịch chuyển sang kiến trúc Cloud (Snowflake, BigQuery) và các công cụ mới (dbt)
+                  đặt ra nhiều thách thức.</li>
+              </ol>
+            </li>
+          </ul>
+
+          <h3 style="margin-top: 1.5rem;">2. Phạm vi tìm kiếm</h3>
+          <ul>
+            <li><strong>Thời gian:</strong> 2018 – 2026</li>
+            <li><strong>Ngôn ngữ:</strong> Tiếng Việt và Tiếng Anh</li>
+            <li><strong>Từ khóa:</strong> Data Transformation methodologies, Data Engineering pipelines, Modern Data
+              Stack, dbt, ETL và ELT.</li>
+          </ul>
+
+          <h2
+            style="font-size: 1.25rem; margin-top: 2.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid #000; padding-bottom: 0.4rem;">
+            II. Quy trình tìm kiếm thông tin</h2>
+          <p>Tôi đã khai thác qua 4 loại nguồn để đảm bảo tính khách quan và chiều sâu:</p>
+          <ul>
+            <li><strong>Cơ sở dữ liệu học thuật:</strong> Google Scholar, Elicit.</li>
+            <li><strong>Tạp chí khoa học:</strong> IEEE Transactions, Journal of Big Data.</li>
+            <li><strong>Sách chuyên khảo:</strong> Designing Data-Intensive Applications (Martin Kleppmann).</li>
+            <li><strong>Nguồn mở Internet:</strong> Báo cáo từ Gartner, blog kỹ thuật của Netflix, Airbnb.</li>
+          </ul>
+
+          <h2
+            style="font-size: 1.25rem; margin-top: 2.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid #000; padding-bottom: 0.4rem;">
+            III. Kết quả tìm kiếm & bảng đánh giá nguồn tin</h2>
+          <h3 style="margin-top: 1rem;">1. Chuỗi truy vấn nâng cao đã thực hiện</h3>
+          <p>Để tìm kiếm thông tin chuyên sâu về "Tối ưu hóa quy trình Data Transformation", các toán tử tìm kiếm nâng
+            cao (AND, OR, site:, ngoặc kép) đã được sử dụng:</p>
+          <div
+            style="background: #1e1e1e; color: #ccc; padding: 1.5rem; border-radius: 8px; font-family: var(--font-mono); font-size: 0.95em; margin: 1.5rem 0; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);">
+            <p style="margin-bottom: 1rem; color: #ccc;"><strong style="color: #fff;">Truy vấn 1 (Google Scholar /
+                arXiv):</strong></p>
+            <code
+              style="color: #61dafb;">("Data Transformation" OR "Data Wrangling") AND ("Modern Data Stack" OR "dbt")</code>
+            <p style="margin-top: 0.5rem; font-size: 0.85em; color: #888;">→ Khai thác các mô hình kiến trúc công nghệ
+              mới.</p>
+
+            <p style="margin-top: 1.5rem; margin-bottom: 1rem; color: #ccc;"><strong style="color: #fff;">Truy vấn 2
+                (IEEE Xplore):</strong></p>
+            <code style="color: #61dafb;">"Data Engineering pipelines" AND ("ETL" OR "ELT") AND site:ieee.org</code>
+            <p style="margin-top: 0.5rem; font-size: 0.85em; color: #888;">→ Lọc giới hạn các bài báo cơ sở dữ liệu
+              chuyên ngành chất lượng cao.</p>
+          </div>
+
+          <h3 style="margin-top: 2.5rem;">2. Bảng đánh giá nguồn tin học thuật</h3>
+          <p>Dưới đây là 5 nguồn tài liệu uy tín nhất được chọn lọc và đánh giá chi tiết:</p>
+
+          <div style="overflow-x: auto; margin-top: 1rem;">
+            <table
+              style="width: 100%; border-collapse: collapse; font-size: 0.95rem; text-align: left; margin-bottom: 2rem;">
+              <thead>
+                <tr style="background-color: #f8f9fa; border-bottom: 2px solid #000;">
+                  <th style="padding: 1rem; border: 1px solid var(--border);">Loại nguồn</th>
+                  <th style="padding: 1rem; border: 1px solid var(--border);">Tên tài liệu / Tác giả</th>
+                  <th style="padding: 1rem; border: 1px solid var(--border);">Đánh giá độ tin cậy & giá trị</th>
+                  <th style="padding: 1rem; border: 1px solid var(--border); text-align: center;">Xếp hạng</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 1rem; border: 1px solid var(--border);"><strong>Bài báo</strong></td>
+                  <td style="padding: 1rem; border: 1px solid var(--border);"><strong>Performance and Scalability of
+                      Data Cleaning Tools</strong><br><span style="color: var(--muted); font-size: 0.85em;">MDPI
+                      (2025)</span></td>
+                  <td style="padding: 1rem; border: 1px solid var(--border);">Nghiên cứu thực nghiệm mới nhất, phương
+                    pháp đo lường (Benchmark) minh bạch, cung cấp số liệu đáng tin cậy.</td>
+                  <td
+                    style="padding: 1rem; border: 1px solid var(--border); text-align: center; color: #10b981; font-weight: bold;">
+                    Rất cao</td>
+                </tr>
+                <tr style="background-color: #fafafa;">
+                  <td style="padding: 1rem; border: 1px solid var(--border);"><strong>Bài báo</strong></td>
+                  <td style="padding: 1rem; border: 1px solid var(--border);"><strong>Modern Data Engineering: A
+                      Review</strong><br><span style="color: var(--muted); font-size: 0.85em;">Chen et al. (IEEE -
+                      2023)</span></td>
+                  <td style="padding: 1rem; border: 1px solid var(--border);">Công bố trên IEEE, hệ thống hóa toàn diện
+                    các công nghệ Cloud-native. Được trích dẫn cao.</td>
+                  <td
+                    style="padding: 1rem; border: 1px solid var(--border); text-align: center; color: #10b981; font-weight: bold;">
+                    Rất cao</td>
+                </tr>
+                <tr>
+                  <td style="padding: 1rem; border: 1px solid var(--border);"><strong>Sách</strong></td>
+                  <td style="padding: 1rem; border: 1px solid var(--border);"><strong>Designing Data-Intensive
+                      Applications</strong><br><span style="color: var(--muted); font-size: 0.85em;">Martin Kleppmann
+                      (2017)</span></td>
+                  <td style="padding: 1rem; border: 1px solid var(--border);">"Kinh thánh" của kỹ sư dữ liệu. Giải thích
+                    sâu sắc nguyên lý nền tảng thay vì chỉ tập trung công cụ.</td>
+                  <td
+                    style="padding: 1rem; border: 1px solid var(--border); text-align: center; color: #10b981; font-weight: bold;">
+                    Rất cao</td>
+                </tr>
+                <tr style="background-color: #fafafa;">
+                  <td style="padding: 1rem; border: 1px solid var(--border);"><strong>Báo cáo</strong></td>
+                  <td style="padding: 1rem; border: 1px solid var(--border);"><strong>The State of Analytics Engineering
+                      2024</strong><br><span style="color: var(--muted); font-size: 0.85em;">dbt Labs (2024)</span></td>
+                  <td style="padding: 1rem; border: 1px solid var(--border);">Dữ liệu thực tế từ hàng nghìn doanh
+                    nghiệp, phản ánh xu hướng thị trường chính xác.</td>
+                  <td
+                    style="padding: 1rem; border: 1px solid var(--border); text-align: center; color: #3b82f6; font-weight: bold;">
+                    Cao</td>
+                </tr>
+                <tr>
+                  <td style="padding: 1rem; border: 1px solid var(--border);"><strong>Báo cáo</strong></td>
+                  <td style="padding: 1rem; border: 1px solid var(--border);"><strong>ETL vs ELT: Modern Data
+                      Integration</strong><br><span style="color: var(--muted); font-size: 0.85em;">AWS (2024)</span>
+                  </td>
+                  <td style="padding: 1rem; border: 1px solid var(--border);">Tài liệu chính thức từ nhà cung cấp Cloud
+                    hàng đầu, so sánh kiến trúc rõ ràng, thực tiễn.</td>
+                  <td
+                    style="padding: 1rem; border: 1px solid var(--border); text-align: center; color: #3b82f6; font-weight: bold;">
+                    Cao</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2
+            style="font-size: 1.25rem; margin-top: 3rem; margin-bottom: 1.5rem; border-bottom: 2px solid #000; padding-bottom: 0.4rem;">
+            IV. Danh mục tài liệu tham khảo</h2>
+          <div
+            style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 1.5rem 2rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+            <ol style="color: var(--muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;">
+              <li>MDPI, 2025. Performance and Scalability of Data Cleaning and Preprocessing Tools. Data Journal.</li>
+              <li>Kramer, K.M. et al., 2025. Towards Next Generation Data Engineering Pipelines. arXiv preprint.</li>
+              <li>Chen, Z. et al., 2023. Modern Data Engineering: A Review of Trends and Technologies. IEEE.</li>
+              <li>Chintala, S., 2023. Analytical Study on Revolutionizing Data Transformation with Generative AI.</li>
+              <li>Reis, J. and Housley, M., 2022. Fundamentals of Data Engineering. O'Reilly.</li>
+              <li>Kleppmann, M., 2017. Designing Data-Intensive Applications. O'Reilly.</li>
+              <li>Gartner, 2023. Magic Quadrant for Data Integration Tools.</li>
+              <li>dbt Labs, 2024. The State of Analytics Engineering.</li>
+              <li>Google Cloud, 2023. The Dataflow Model: A Practical Guide to Data Transformation.</li>
+              <li>AWS, 2024. ETL vs ELT – The Difference Between Data Processing Methods.</li>
+            </ol>
+          </div>
+
+          <h2
+            style="font-size: 1.25rem; margin-top: 3rem; margin-bottom: 1.5rem; border-bottom: 2px solid #000; padding-bottom: 0.4rem;">
+            V. Kết luận và bài học</h2>
+          <ul>
+            <li><strong>Kết quả:</strong> Việc biến đổi dữ liệu không chỉ là kỹ thuật mà là một quy trình mang tính
+              chiến lược, kết hợp giữa thuật toán và hiểu biết về nghiệp vụ kinh doanh.</li>
+            <li><strong>Khó khăn:</strong> Nguồn thông tin trên mạng rất nhiều nhưng thường mang tính quảng cáo sản
+              phẩm. Tôi đã học được cách kiểm chứng thông tin thông qua việc so sánh các bài báo nghiên cứu (Research
+              Papers) với các báo cáo thực tế của doanh nghiệp.</li>
+            <li><strong>Tầm quan trọng:</strong> Sử dụng nguồn tin học thuật giúp nắm vững bản chất của vấn đề thay vì
+              chỉ học cách sử dụng công cụ, điều này rất quan trọng cho sự nghiệp Data Engineer lâu dài.</li>
+          </ul>
+        </div>
+        <!-- Right: Original HTML assets (Images, Code blocks, tables) -->
+        <!-- Right: Original HTML assets (Images, Code blocks, tables) -->
+        <div class="detail-assets reveal">
+          <h3 class="section-title"
+            style="font-size: 1.15rem; margin-bottom: 1rem; border-bottom: 2px solid #000; padding-bottom: 0.4rem;">
+            Thông tin bổ sung</h3>
+          <p style="font-size: 0.95rem; color: var(--muted); margin-bottom: 1.5rem;">
+            Khó khăn lớn nhất khi khai thác thông tin trên Internet là sự nhiễu loạn của các bài viết mang tính quảng
+            cáo sản phẩm. Kỹ năng thiết lập từ khóa kết hợp toán tử Boolean và việc đối chiếu chéo (cross-reference) các
+            Research Papers với tài liệu từ các công ty công nghệ lớn giúp chọn lọc được thông tin có giá trị thực sự.
+          </p>
+          <div style="border-top: 1px solid var(--border-muted); padding-top: 1.5rem;">
+            <h4 class="skill-group-title"
+              style="font-size: 0.85rem; margin-bottom: 0.8rem; font-family: var(--font-mono); text-transform: uppercase;">
+              Kỹ năng rèn luyện</h4>
+            <div class="card-skills">
+              <span class="skill-chip">Google Scholar</span>
+              <span class="skill-chip">Boolean Search</span>
+              <span class="skill-chip">Academic Evaluation</span>
+              <span class="skill-chip">Tư duy phản biện</span>
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-left">
+        <h3>Đỗ Văn Thái</h3>
+        <p>Data Science · K70-DS2 · UET ĐHQGHN · 2025–2026</p>
+      </div>
+      <div class="footer-right">
+        <div class="footer-mssv">MSSV: 25024167</div>
+        <div class="footer-school">Đại học Công nghệ — ĐHQGHN</div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // Intersection Observer for reveals
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0 });
+
+    revealEls.forEach(el => observer.observe(el));
+
+    // Bar animations
+    const barObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const fills = entry.target.querySelectorAll('.bar-fill');
+          fills.forEach((fill, i) => {
+            const w = fill.getAttribute('data-width');
+            setTimeout(() => {
+              fill.style.width = (parseFloat(w) * 100) + '%';
+              fill.classList.add('animate');
+            }, i * 120);
+          });
+          barObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.skill-group').forEach(el => barObserver.observe(el));
+
+    // Smooth scroll for nav
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        if (id === '#') return;
+        e.preventDefault();
+        document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,261 @@
+--- Page 1 ---
+BÁO CÁO THỰC HÀNH 
+ỨNG DỤNG CÔNG CỤ AI TẠO SINH 
+TRONG QUÁ TRÌNH SÁNG TẠO NỘI DUNG SỐ 
+Dự án: Infographic "Hành trình Net Zero – Việt Nam hướng đến Phát thải ròng bằng không" 
+Sinh viên thực hiện:  Đỗ Văn Thái 
+Mã số sinh viên:  25024167 
+PHẦN I: GIỚI THIỆU DỰ ÁN 
+1.1. Mô tả dự án 
+Dự án được lựa chọn là thiết kế một bộ Infographic 3 trang về chủ đề "Hành trình Net Zero 
+– Việt Nam hướng đến Phát thải ròng bằng không". Đây là chủ đề thời sự, phức tạp, cần vừa 
+đảm bảo tính chính xác khoa h ọc vừa có khả năng truyền thông hiệu quả tới công chúng tr ẻ. 
+Infographic bao gồm ba phần chính: (1) hiện trạng tình hình phát th ải CO₂ của Việt Nam; (2) 
+các giải pháp trọng điểm trên lộ trình Net Zero đến năm 2050; và (3) lời kêu gọi hành động cá 
+nhân. 
+1.2. Lý do lựa chọn chủ đề 
+Chủ đề môi trường và bi ến đổi khí h ậu đang nh ận được sự quan tâm l ớn từ chính phủ, 
+doanh nghiệp và thế hệ Z. Tuy nhiên, vấn đề này thiếu những nội dung truyền thông sáng tạo, 
+dễ hiểu và phù h ợp với nền tảng số. Việc sử dụng AI để tạo ra infographic chất lượng cao về 
+Net Zero không chỉ đáp ứng yêu cầu bài tập mà còn tạo ra giá trị thực tiễn – có thể chia sẻ trên 
+mạng xã hội, góp phần nâng cao nhận thức cộng đồng. 
+PHẦN II: QUÁ TRÌNH SỬ DỤNG 3 CÔNG CỤ AI TẠO SINH 
+2.1. CÔNG CỤ 1 – Claude (Anthropic): AI Tạo Văn Bản 
+2.1.1. Giới thiệu công cụ 
+Claude là mô hình ngôn ngữ lớn (LLM) của Anthropic, được đánh giá cao về khả năng lý 
+luận, viết văn bản dài và xử lý các chủ đề phức tạp, khoa học. Phiên bản sử dụng: Claude Sonnet 
+3.5 (miễn phí qua claude.ai). 
+2.1.2. Các Prompt đã sử dụng và kết quả 
+ 
+--- Page 2 ---
+PROMPT 1 – Nghiên cứu và cấu trúc nội dung 
+"Bạn là chuyên gia truyền thông môi trường. Tôi cần thiết kế infographic 3 trang về 
+'Net Zero Việt Nam 2050'. Hãy giúp tôi: (1) Liệt kê 5 thông số thống kê quan trọng nhất 
+về phát thải Việt Nam kèm nguồn trích dẫn uy tín; (2) Đề xuất cấu trúc 3 trang infographic 
+với tiêu đề và ý chính mỗi trang; (3) Viết copy cho mỗi trang (<50 từ/trang). Yêu cầu: 
+ngôn ngữ trẻ trung, thực tế, có thể chia sẻ trên Instagram." 
+ 
+Kết quả Prompt 1: Claude tr ả về bài phân tích 850 t ừ, bao gồm 5 thống kê chính xác v ới 
+nguồn (IEA 2023, MONRE 2024), c ấu trúc 3 trang rõ ràng (Hi ện trạng – Giải pháp – Hành 
+động), và 3 đoạn copy ngắn gọn, hấp dẫn. Đây là nền tảng nội dung tốt – chính xác, có cấu trúc, 
+có thể sử dụng ngay. Tuy nhiên, vẫn có một số thông số cần kiểm tra lại do knowledge cutoff 
+của mô hình. 
+2.1.3. Đánh giá Claude trong dự án này 
+✅ Điểm mạnh 
+• Chính xác về nội dung, có nguồn dẫn 
+• Xử lý tốt các yêu cầu phức tạp, đa bước 
+• Chuyển đổi format linh hoạt (JSON, 
+Markdown) 
+• Viết đa phong cách: từ khoa học đến Gen-Z 
+• Tiếng Việt tự nhiên, đúng văn phong 
+❌ Hạn chế 
+• Không tạo được hình ảnh trực tiếp 
+• Dữ liệu có thể bị cũ (knowledge cutoff) 
+• Cần nhiều vòng prompt để đạt kết quả tối ưu 
+• Không tự truy cập internet theo thời gian thực 
+ 
+2.2. CÔNG CỤ 2 – DALL-E 3 (OpenAI): AI Tạo Hình Ảnh 
+2.2.1. Giới thiệu công cụ 
+DALL-E 3 là mô hình tạo hình ảnh text-to-image của OpenAI, tích hợp sẵn trong ChatGPT 
+Plus. Điểm mạnh là khả năng hiểu prompt tiếng Anh phức tạp và tạo ra hình ảnh phong cách 
+đa dạng, phù hợp cho truyền thông thương hiệu. Phiên bản sử dụng: DALL-E 3 qua ChatGPT 
+(plan miễn phí có hạn mức). 
+2.2.2. Các Prompt đã sử dụng và kết quả 
+ 
+PROMPT HÌNH ẢNH 1 – Hình nền trang 1 (Hiện trạng phát thải) 
+"Create a dramatic aerial view of Vietnam's industrial landscape at dusk – 
+factories with smokestacks on one side, lush green rice fields and wind turbines 
+on the other. Split composition showing contrast between pollution and clean energy. 
+Photorealistic style, cinematic lighting, warm orange sky, suitable for 
+environmental infographic background. No text." 
+ 
+Kết quả: DALL-E 3 tạo ra hình ảnh ấn tượng với bố cục đối lập rõ ràng. Ảnh có tông màu 
+cinematic đẹp, phù hợp cho phần nền infographic. Tuy nhiên, ảnh có xu hướng 'quốc tế hóa' – 
+chưa thể hiện rõ đặc trưng Việt Nam. Cần chỉnh sửa: lấy ảnh làm texture nền thay vì hình chính. 
+ 
+--- Page 3 ---
+PROMPT HÌNH ẢNH 2 – Sau chỉnh sửa, thêm đặc trưng Việt Nam 
+"Flat design illustration of Vietnam's Net Zero journey 2050. Include: Vietnamese 
+rice terraces (Mù Cang Chải style), solar panels on traditional tiled rooftops, 
+electric vehicles on Hanoi streets, offshore wind turbines in Hạ Long Bay waters. 
+Color palette: emerald green #1B6B35, sky blue #0EA5E9, warm yellow #FBBF24. 
+Minimalist, modern, infographic-ready. No text overlay." 
+ 
+Kết quả Prompt 2: Hình ảnh flat design đẹp hơn, mang nhiều đặc trưng Việt Nam hơn. Màu 
+sắc đúng v ới palette đã ch ỉ định. Kết quả này được sử dụng trực tiếp làm element minh h ọa 
+chính trong infographic trang 2. 
+2.2.3. Đánh giá DALL-E 3 
+✅ Điểm mạnh 
+• Chất lượng hình ảnh rất cao, photorealistic 
+• Hiểu prompt phức tạp chính xác 
+• Đa dạng phong cách: flat, photo, illustration 
+• Tích hợp sẵn trong ChatGPT, dễ truy cập 
+❌ Hạn chế 
+• Khó tạo đặc trưng văn hóa cụ thể 
+• Không chỉnh sửa được hình ảnh đã tạo 
+• Miễn phí có giới hạn số lượng ảnh/ngày 
+• Không kiểm soát được chi tiết nhỏ 
+ 
+2.3. CÔNG CỤ 3 – Canva AI (Magic Design + Magic Write): AI Hỗ trợ Thiết kế 
+2.3.1. Giới thiệu công cụ 
+Canva AI tích h ợp nhiều tính năng AI trong  nền tảng thiết kế Canva: Magic Design (t ạo 
+template t ừ mô t ả), Magic Write (vi ết copy), Text to Image (t ạo ảnh), và AI Background 
+Remover. Đây là công cụ 'all-in-one' cho người không chuyên thiết kế nhưng muốn có sản phẩm 
+chuyên nghiệp. 
+2.3.2. Các Prompt đã sử dụng và kết quả 
+ 
+PROMPT MAGIC DESIGN – Tạo cấu trúc infographic 
+Sử dụng Magic Design với mô tả: "3-page infographic about Vietnam Net Zero 2050, 
+environmental theme, modern and youthful style, data visualization focused, 
+green and blue color palette, suitable for social media sharing 
+(1080×1920px Instagram Stories format)" 
+ 
+Kết quả: Canva AI tạo ra 4 mẫu layout khác nhau phù hợp với mô tả. Mẫu số 1 được chọn 
+vì có bố cục hiện đại, chú trọng data visualization với biểu đồ tròn và bar chart, màu sắc xanh 
+lá cây – xanh dương phù hợp chủ đề môi trường. Tiết kiệm ~2 giờ so với tự thiết kế layout từ 
+đầu. 
+ 
+PROMPT MAGIC WRITE – Tạo slogan trang 3 
+Magic Write: "Viết 5 slogan tiếng Việt cho chiến dịch Net Zero, ngắn gọn (max 10 từ), 
+mạnh mẽ, có dùng chi tiết số, phù hợp thế hệ Z, 
+có thể làm caption mạng xã hội" 
+--- Page 4 ---
+ 
+Kết quả: 5 slogan đề xuất. Chọn slogan số 3: "Net Zero: 1 hành động nhỏ, 1 tương lai lớn 
+". Tuy nhiên, chất lượng viết tiếng Việt của Canva Magic Write thấp hơn Claude – câu có 
+vẻ "máy móc", cần chỉnh sửa nhiều. Đây là điểm hạn chế rõ ràng nhất của công cụ này. 
+2.3.3. Đánh giá Canva AI 
+✅ Điểm mạnh 
+• Giao diện trực quan, dễ sử dụng tức thì 
+• Template phong phú, chất lượng cao 
+• Tích hợp đa công cụ AI trong một nền tảng 
+• Xuất file đa định dạng (PNG, PDF, MP4) 
+• Phù hợp người không chuyên thiết kế 
+❌ Hạn chế 
+• Magic Write tiếng Việt chất lượng thấp 
+• Tùy chỉnh sâu bị hạn chế (bản miễn phí) 
+• AI Image phụ thuộc vào thư viện có sẵn 
+• Ít kiểm soát hơn so với Photoshop/Figma 
+ 
+PHẦN III: SO SÁNH CHI TIẾT 3 CÔNG CỤ AI 
+Bảng so sánh tổng thể 
+ 
+Tiêu chí Claude (Anthropic) DALL-E 3 (OpenAI) Canva AI 
+Chức năng chính Tạo văn bản, lý luận Tạo hình ảnh Thiết kế tổng thể 
+Chất lượng đầu ra 9/10 8.5/10 8/10 
+Dễ sử dụng 8/10 7.5/10 9.5/10 
+Tiếng Việt 9/10 6/10 5/10 
+Tùy chỉnh sâu 9/10 5/10 7/10 
+Miễn phí Có (giới hạn) Có (rất giới hạn) Có (giới hạn) 
+Thời gian xử lý 3–5 giây 15–30 giây 5–10 giây 
+Phù hợp nhất cho Nội dung & phân tích Hình ảnh minh họa Layout & thiết kế 
+ 
+PHẦN IV: SẢN PHẨM CUỐI CÙNG VÀ ĐÓNG GÓP SÁNG 
+TẠO 
+4.1. Mô tả sản phẩm cuối cùng 
+Sản phẩm là bộ infographic 3 trang định dạng Instagram Stories (1080×1920px), được xuất 
+ra định dạng PNG chất lượng cao (300 DPI).  
+Trang 1: "Việt Nam và bài toán CO₂" 
+Hiện trạng phát thải Việt Nam với các số liệu chính: 350 triệu tấn CO₂/năm (2023), tăng 
+300% so 1990, đứng thứ 2 Đông Nam Á. Phân nguồn phát thải chính: 40% từ năng lượng, 22% 
+--- Page 5 ---
+từ công nghiệp, 18% t ừ nông nghiệp. Phần dự báo: 450 tri ệu tấn nếu không hành đ ộng đến 
+2030. 
+Trang 2: "Lộ trình Net Zero 2050" 
+4 trụ cột chính: (1) Năng lư ợng tái tạo: 47% tổng công suất đến 2030; (2) Hiệu quả năng 
+lượng: giảm 15% tiêu thụ năng lượng; (3) Rừng và carbon sink: 16 triệu ha rừng; (4) Giao thông 
+xanh: 100% xe điện cạnh bán đến 2040. Mỗi trụ cột có số liệu cụ thể và ví dụ thực tế. 
+Trang 3: "Bạn có thể làm gì?" 
+Lời kêu gọi hành động cá nhân với 6 việc làm cụ thể: sử dụng năng lượng mặt trời, dùng 
+phương tiện công cộng, ăn thực vật 3 lần/tuần, tiết kiệm điện, tái sử dụng và tái chế, trồng cây. 
+Slogan chính: " Net Zero: 1 hành động nhỏ, 1 tương lai lớn ". 
+ 
+4.2. Phần trăm đóng góp sáng tạo cá nhân (>50%) 
+Đầu ra AI chiếm khoảng 40–45% giá trị cuối cùng của sản phẩm, phần còn lại là đóng góp 
+sáng tạo cá nhân: 
+ 
+ĐÓNG GÓP SÁNG TẠO CÁ NHÂN (>50%) 
+1. Định hướng chiến lược: Quyết định chủ đề, đối tượng và thông điệp chính của infographic – AI 
+không làm được việc này. 
+ 
+2. Curating và kiểm chứng: Lọc chọn thông tin từ Claude (giữ 60%, bỏ 40% không phù hợp), kiểm 
+tra lại 5 thống kê bằng nguồn gốc ban đầu. 
+ 
+3. Góc nhìn của tác giả: Thêm trang 3 "Bạn có thể làm gì?" – ý tưởng này không có trong cấu trúc 
+gợi ý của Claude ban đầu. 
+ 
+4. Thiết kế thẩm mỹ: Tùy chỉnh màu sắc, typography, cân bằng trang vàng, chọn font chữ và kích 
+thước ảnh. 
+ 
+5. Kết hợp AI: Dùng ảnh DALL-E 3 làm texture nền làm mờ (blur effect) thay vì dùng trực tiếp – 
+tạo hiệu ứng layering đẹp bất ngờ. 
+PHẦN V: PHÂN TÍCH VAI TRÒ AI TRONG SÁNG TẠO – 
+GÓC NHÌN TOÀN DIỆN 
+5.1. Những phần AI làm tốt 
+Trong dự án này, AI chứng tỏ sức mạnh vượt trội ở những nhiệm vụ cụ thể: 
+ Xử lý thông tin tốc độ cao: Claude tổng hợp dữ liệu từ nhiều nguồn và trả về bài phân tích 
+chất lượng trong 5 giây – việc mà con người mất vài giờ. Đây là lợi thế cốt lõi của AI trong 
+giai đoạn nghiên cứu. 
+ Tạo dữ liệu biến thể (Variations): Viết 10 phiên bản slogan khác nhau trong 10 giây để người 
+dùng chọn – công việc sáng tạo lặp đi lặp lại mà AI làm rất tốt. 
+--- Page 6 ---
+ Duy trì nhất quán: AI không bị "mệt", không có ngày tốt ngày xấu – chất lượng đầu ra ổn định 
+khi prompt tốt. 
+ Hạ ngưỡng kỹ năng: Người không biết thiết kế cũng tạo được infographic đẹp với Canva AI – 
+AI dân chủ hóa khả năng sáng tạo. 
+5.2. Những phần AI còn hạn chế 
+Song song v ới những thành t ựu, có nh ững hạn chế rất rõ ràng mà ngư ời dùng c ần nhận 
+thức: 
+ Thiếu bối cảnh văn hóa sâu: DALL-E 3 không "biết" rằng ruộng bậc thang Mù Cang Chải 
+khác ruộng bậc thang Yunnan (Trung Quốc) – cần prompt rất cụ thể và vẫn phải chấp nhận 
+sự xấp xỉ. AI thiếu lived experience. 
+ Không có ý kiến độc lập: AI phù hợp hóa theo prompt – nếu người dùng có nhận thức sai, AI 
+sẽ tạo ra nội dung sai một cách tự tin. "Garbage in, garbage out" vẫn còn nguyên giá trị. 
+ Hạn chế sưu tầm sáng tạo thật sự: AI tạo ra những thứ "trong khoảng" dữ liệu huấn luyện – 
+các ý tưởng thật sự đột phá, vượt ra ngoài training data là cực kỳ khó. Infographic của AI có 
+xu hướng trông như "trung bình trên thế giới". 
+5.3. Cách AI thay đổi quy trình sáng tạo 
+Sự xuất hiện của AI tạo sinh không đơn thuần là "công cụ nhanh hơn" – nó thay đổi cơ bản 
+quy trình tư duy khi sáng tạo nội dung: 
+Thứ nhất, sáng tạo trở nên "ngoại hóa" hơn. Thay vì ngồi mơ màng trong đầu rồi mới bắt 
+tay, giờ người dùng "nói chuyện" với AI như nói chuyện với một đối tác – ý tưởng hình thành 
+qua đối thoại, không phải qua suy nghĩ đơn độc. 
+Thứ hai, vòng lặp phản hồi ngắn lại rất nhiều. Trước đây, để thay đổi hướng sáng tạo cần 
+biết lâu và bắt đầu lại. Với AI, mỗi thử nghiệm chỉ mất vài giây, nên có thể thử rất nhiều hướng 
+khám phá nhanh chóng. 
+Thứ ba, kỹ năng trở nên quan trọng hơn kiến thức. Biết cách vi ết prompt hi ệu quả, biết 
+cách lọc kết quả AI, biết khi nào nên tin và khi nào nên đặt câu hỏi – những kỹ năng meta này 
+giá trị hơn là biết cú pháp HTML hay biến thiết kế Photoshop. 
+5.4. Các vấn đề đạo đức cần xem xét 
+ 
+VẤN ĐỀ 1: Bản quyền và sở hữu trí tuệ 
+Ai sở hữu hình ảnh do DALL-E 3 tạo ra? Hiện tại các công ty AI (OpenAI, Anthropic) có 
+chính sách cho phép người dùng sử dụng ảnh cho mục đích thương mại, nhưng vấn đề pháp lý 
+vẫn chưa rõ ràng ở nhiều quốc gia, bao gồm Việt Nam. Khi sử dụng AI trong các dự án 
+thương mại, cần đọc kỹ điều khoản sử dụng của từng dịch vụ. 
+ 
+VẤN ĐỀ 2: Tính xác thực và minh bạch 
+Nếu đăng infographic này lên mạng xã hội, có nên ghi rõ "Tạo ra với sự hỗ trợ của AI" 
+không? Tôi cho rằng có – sự minh bạch tạo dựng tin cậy và giúp công chúng hiểu đúng về 
+khả năng của AI. Việc giấu sự hỗ trợ của AI có thể bị coi là lừa dối, đặc biệt trong bối 
+cảnh nội dung deepfake đang là vấn đề lớn. 
+--- Page 7 ---
+ 
+VẤN ĐỀ 3: Phụ thuộc và mất kỹ năng 
+Nếu sử dụng AI quá nhiều, dần dần mỗi người sẽ mất khả năng tự viết, tự thiết kế. 
+Điều này đang xảy ra ở nhiều lĩnh vực – tương tự như GPS làm chúng ta mất khả năng đọc 
+bản đồ. Cần thiết lập ranh giới rõ ràng: AI là công cụ hỗ trợ, không phải người thay thế 
+tư duy. Trong quá trình học tập, cần thực hành tự lực là chính, AI chỉ được phép hỗ trợ. 
+ 
+PHẦN VI: KẾT LUẬN  
+6.1. Kết luận tổng thể 
+Dự án infographic "Hành trình Net Zero" đã ch ứng minh rằng việc kết hợp 3 công cụ AI 
+tạo sinh (Claude + DALL-E 3 + Canva AI) có thể tạo ra sản phẩm truyền thông chất lượng cao 
+trong thời gian ngắn gấp 3–4 lần so với quy trình truyền thống. Tuy nhiên, điều này chỉ có thể 
+đạt được khi người dùng hiểu rõ th ế mạnh của từng công cụ và biết cách k ết hợp chúng một 
+cách hợp lý. 
+Quan trọng nhất, dự án xác nhận rằng AI không thay thế sáng tạo của con người mà là một 
+"bộ khuếch đại" giúp con người làm việc hiệu quả hơn. Những quyết định mang tính nghệ thuật 
+và chiều sâu – chọn chủ đề gì, nói gì và không nói gì, thể hiện cái gì theo cách nào – vẫn thuộc 
+về người sáng tạo. 
+ 
