@@ -1201,7 +1201,7 @@
       position: fixed;
       z-index: 0;
       color: #000000;
-      opacity: 0.035;
+      opacity: 0.08;
       /* Faint outline so it stays extremely minimalist and clean */
       pointer-events: none;
       transition: opacity 0.3s ease;
@@ -1455,44 +1455,51 @@
 </head>
 
 <body>
-  <!-- Minimalist Nature Background Motifs (Dynamic Swaying Line Art) -->
-  <div class="bg-leaf leaf-1">
-    <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
-      <path d="M10 90 Q 50 80, 80 20" />
-      <path d="M80 20 Q 75 10, 70 20 Q 75 30, 80 20 Z" />
-      <path d="M60 40 Q 50 25, 45 35 Q 55 45, 60 40 Z" />
-      <path d="M63 37 Q 75 25, 78 35 Q 68 45, 63 37 Z" />
-      <path d="M40 60 Q 30 45, 25 55 Q 35 65, 40 60 Z" />
-      <path d="M43 57 Q 55 45, 58 55 Q 48 65, 43 57 Z" />
+  <!-- Minimalist Nature Background Motifs -->
+  <div class="nature-bg-layer"
+    style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 10; pointer-events: none; overflow: hidden; color: #1e293b;">
+    <!-- Large faint circle (Sun/Moon) -->
+    <svg style="position: absolute; top: 5%; right: 5%; width: 40vw; height: 40vw; opacity: 0.02;" viewBox="0 0 100 100"
+      fill="currentColor">
+      <circle cx="50" cy="50" r="45" />
     </svg>
-  </div>
 
-  <div class="bg-leaf leaf-2">
-    <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
-      <path d="M10 90 Q 50 70, 90 60" />
-      <path d="M90 60 Q 82 52, 80 62 Q 87 70, 90 60 Z" />
-      <path d="M65 67 Q 55 52, 50 62 Q 60 72, 65 67 Z" />
-      <path d="M68 64 Q 78 52, 82 62 Q 72 72, 68 64 Z" />
-      <path d="M42 74 Q 32 59, 27 69 Q 37 79, 42 74 Z" />
-      <path d="M45 71 Q 55 59, 59 69 Q 49 79, 45 71 Z" />
+    <!-- Abstract Mountains / Hills -->
+    <svg style="position: absolute; bottom: 0; left: 0; width: 100vw; height: 40vh; opacity: 0.04;"
+      preserveAspectRatio="none" viewBox="0 0 100 100" fill="currentColor">
+      <path d="M0 100 L0 60 Q 25 30, 50 60 T 100 60 L100 100 Z" />
+      <path d="M0 100 L0 80 Q 30 50, 70 80 T 100 80 L100 100 Z" opacity="0.6" />
     </svg>
-  </div>
 
-  <div class="bg-leaf leaf-3">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
-      <path d="M2 22C2 22 8 18 12 14C16 10 22 2 22 2C2 2 10 8 14 12C18 16 22 22 22 22" />
-      <path d="M12 14L16 16M9 17L11 19M15 11L18 12M17 7L20 8" />
+    <!-- Faint floating geometric leaves -->
+    <svg
+      style="position: absolute; top: 20%; left: 10%; width: 80px; height: 80px; transform: rotate(15deg); opacity: 0.07;"
+      viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <path d="M10 90 Q 50 80, 80 20 Q 75 10, 70 20 Q 75 30, 80 20 Z" />
+      <path d="M10 90 Q 20 50, 80 20" />
     </svg>
-  </div>
 
-  <div class="bg-leaf leaf-4">
-    <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+    <svg
+      style="position: absolute; top: 60%; right: 15%; width: 120px; height: 120px; transform: rotate(-30deg); opacity: 0.06;"
+      viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
       <path d="M50 90 C 20 60, 20 40, 50 10 C 80 40, 80 60, 50 90 Z" />
       <path d="M50 10 L 50 90" />
       <path d="M50 30 L 65 40" />
-      <path d="M50 45 L 35 55" />
-      <path d="M50 60 L 68 70" />
-      <path d="M50 75 L 32 85" />
+      <path d="M50 50 L 35 60" />
+    </svg>
+
+    <!-- Faint Dandelion Seeds / Dots -->
+    <svg style="position: absolute; top: 30%; right: 40%; width: 10px; height: 10px; opacity: 0.08;" viewBox="0 0 10 10"
+      fill="currentColor">
+      <circle cx="5" cy="5" r="5" />
+    </svg>
+    <svg style="position: absolute; top: 70%; left: 30%; width: 15px; height: 15px; opacity: 0.06;" viewBox="0 0 10 10"
+      fill="currentColor">
+      <circle cx="5" cy="5" r="5" />
+    </svg>
+    <svg style="position: absolute; top: 40%; left: 50%; width: 8px; height: 8px; opacity: 0.04;" viewBox="0 0 10 10"
+      fill="currentColor">
+      <circle cx="5" cy="5" r="5" />
     </svg>
   </div>
   <!-- NAV -->
@@ -1634,7 +1641,7 @@
 
           <h2
             style="font-size: 1.25rem; margin-top: 3rem; margin-bottom: 1.5rem; border-bottom: 2px solid #000; padding-bottom: 0.4rem;">
-            Minh chứng hình ảnh</h2>
+          </h2>
 
           <div class="gallery-grid" style="display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1rem;">
             <div class="gallery-item">
@@ -1701,15 +1708,35 @@
   </main>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
+  <footer
+    style="position: relative; padding: 4rem 2rem; background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%); color: #0f172a; border-top: 1px solid rgba(0, 0, 0, 0.08); overflow: hidden;">
+    <!-- Decorative background elements -->
+    <div
+      style="position: absolute; top: -50px; left: -10%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, rgba(139,92,246,0) 70%); border-radius: 50%; pointer-events: none;">
+    </div>
+    <div
+      style="position: absolute; bottom: -100px; right: -5%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(56,189,248,0.06) 0%, rgba(56,189,248,0) 70%); border-radius: 50%; pointer-events: none;">
+    </div>
+    <div
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,%3Csvg width=%2220%22 height=%2220%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Ccircle cx=%222%22 cy=%222%22 r=%221%22 fill=%22rgba(0,0,0,0.03)%22/%3E%3C/svg%3E') repeat; pointer-events: none;">
+    </div>
+
+    <div class="footer-inner"
+      style="position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 2rem;">
       <div class="footer-left">
-        <h3>Đỗ Văn Thái</h3>
-        <p>Data Science · K70-DS2 · UET ĐHQGHN · 2025–2026</p>
+        <h3
+          style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: #0f172a; margin-bottom: 0.35rem;">
+          Đỗ Văn Thái</h3>
+        <p style="font-family: var(--font-mono); font-size: 0.72rem; color: #475569; letter-spacing: 0.02em;">Data
+          Science · K70-DS2 · UET ĐHQGHN · 2025–2026</p>
       </div>
-      <div class="footer-right">
-        <div class="footer-mssv">MSSV: 25024167</div>
-        <div class="footer-school">Đại học Công nghệ — ĐHQGHN</div>
+      <div class="footer-right" style="text-align: right;">
+        <div class="footer-mssv"
+          style="font-family: var(--font-mono); font-size: 0.7rem; color: #64748b; letter-spacing: 0.05em; margin-bottom: 0.25rem;">
+          MSSV: 25024167</div>
+        <div class="footer-school"
+          style="font-family: var(--font-display); font-size: 0.85rem; font-weight: 600; color: #334155;">Đại học Công
+          nghệ — ĐHQGHN</div>
       </div>
     </div>
   </footer>

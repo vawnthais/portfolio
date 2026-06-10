@@ -150,6 +150,36 @@
       max-width: 1000px;
       margin: 0 auto;
       width: 100%;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .hero-avatar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.3s forwards;
+    }
+
+    .hero-avatar img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border: 4px solid #ffffff;
+      box-shadow: 0 0 0 2px var(--border), 6px 6px 0px #000000;
+      border-radius: 4px;
+      background: #ffffff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero-avatar img:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 0 0 0 2px var(--border), 8px 8px 0px #000000;
     }
 
     .hero-tag {
@@ -1186,9 +1216,9 @@
     /* === MINIMALIST NATURE BACKDROP === */
     .bg-leaf {
       position: fixed;
-      z-index: 0;
+      z-index: 2;
       color: #000000;
-      opacity: 0.035;
+      opacity: 0.06;
       /* Faint outline so it stays extremely minimalist and clean */
       pointer-events: none;
       transition: opacity 0.3s ease;
@@ -1285,6 +1315,20 @@
 
       .hero {
         padding: 7rem 1.5rem 3rem;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: left;
+      }
+
+      .hero-avatar {
+        order: -1;
+      }
+
+      .hero-avatar img {
+        max-width: 200px;
       }
 
       .projects-grid {
@@ -1445,44 +1489,75 @@
 
 <body>
 
-  <!-- Minimalist Nature Background Motifs (Dynamic Swaying Line Art) -->
-  <div class="bg-leaf leaf-1">
-    <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
-      <path d="M10 90 Q 50 80, 80 20" />
-      <path d="M80 20 Q 75 10, 70 20 Q 75 30, 80 20 Z" />
-      <path d="M60 40 Q 50 25, 45 35 Q 55 45, 60 40 Z" />
-      <path d="M63 37 Q 75 25, 78 35 Q 68 45, 63 37 Z" />
-      <path d="M40 60 Q 30 45, 25 55 Q 35 65, 40 60 Z" />
-      <path d="M43 57 Q 55 45, 58 55 Q 48 65, 43 57 Z" />
+  <!-- Minimalist Nature Background Motifs (Dynamic Swaying Line Art, Circles and Waves) -->
+  <div class="nature-bg-layer"
+    style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 2; pointer-events: none; overflow: hidden; color: #000000;">
+    <!-- Large faint circle (Sun/Moon) -->
+    <svg style="position: absolute; top: 5%; right: 5%; width: 40vw; height: 40vw; opacity: 0.02;" viewBox="0 0 100 100"
+      fill="currentColor">
+      <circle cx="50" cy="50" r="45" />
     </svg>
-  </div>
 
-  <div class="bg-leaf leaf-2">
-    <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
-      <path d="M10 90 Q 50 70, 90 60" />
-      <path d="M90 60 Q 82 52, 80 62 Q 87 70, 90 60 Z" />
-      <path d="M65 67 Q 55 52, 50 62 Q 60 72, 65 67 Z" />
-      <path d="M68 64 Q 78 52, 82 62 Q 72 72, 68 64 Z" />
-      <path d="M42 74 Q 32 59, 27 69 Q 37 79, 42 74 Z" />
-      <path d="M45 71 Q 55 59, 59 69 Q 49 79, 45 71 Z" />
+    <!-- Abstract Mountains / Hills (Wave Shapes) -->
+    <svg style="position: absolute; bottom: 0; left: 0; width: 100vw; height: 40vh; opacity: 0.04;"
+      preserveAspectRatio="none" viewBox="0 0 100 100" fill="currentColor">
+      <path d="M0 100 L0 60 Q 25 30, 50 60 T 100 60 L100 100 Z" />
+      <path d="M0 100 L0 80 Q 30 50, 70 80 T 100 80 L100 100 Z" opacity="0.6" />
     </svg>
-  </div>
 
-  <div class="bg-leaf leaf-3">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
-      <path d="M2 22C2 22 8 18 12 14C16 10 22 2 22 2C2 2 10 8 14 12C18 16 22 22 22 22" />
-      <path d="M12 14L16 16M9 17L11 19M15 11L18 12M17 7L20 8" />
+    <!-- Swaying Leaves -->
+    <div class="bg-leaf leaf-1">
+      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+        <path d="M10 90 Q 50 80, 80 20" />
+        <path d="M80 20 Q 75 10, 70 20 Q 75 30, 80 20 Z" />
+        <path d="M60 40 Q 50 25, 45 35 Q 55 45, 60 40 Z" />
+        <path d="M63 37 Q 75 25, 78 35 Q 68 45, 63 37 Z" />
+        <path d="M40 60 Q 30 45, 25 55 Q 35 65, 40 60 Z" />
+        <path d="M43 57 Q 55 45, 58 55 Q 48 65, 43 57 Z" />
+      </svg>
+    </div>
+
+    <div class="bg-leaf leaf-2">
+      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+        <path d="M10 90 Q 50 70, 90 60" />
+        <path d="M90 60 Q 82 52, 80 62 Q 87 70, 90 60 Z" />
+        <path d="M65 67 Q 55 52, 50 62 Q 60 72, 65 67 Z" />
+        <path d="M68 64 Q 78 52, 82 62 Q 72 72, 68 64 Z" />
+        <path d="M42 74 Q 32 59, 27 69 Q 37 79, 42 74 Z" />
+        <path d="M45 71 Q 55 59, 59 69 Q 49 79, 45 71 Z" />
+      </svg>
+    </div>
+
+    <div class="bg-leaf leaf-3">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+        <path d="M2 22C2 22 8 18 12 14C16 10 22 2 22 2C2 2 10 8 14 12C18 16 22 22 22 22" />
+        <path d="M12 14L16 16M9 17L11 19M15 11L18 12M17 7L20 8" />
+      </svg>
+    </div>
+
+    <div class="bg-leaf leaf-4">
+      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+        <path d="M50 90 C 20 60, 20 40, 50 10 C 80 40, 80 60, 50 90 Z" />
+        <path d="M50 10 L 50 90" />
+        <path d="M50 30 L 65 40" />
+        <path d="M50 45 L 35 55" />
+        <path d="M50 60 L 68 70" />
+        <path d="M50 75 L 32 85" />
+      </svg>
+    </div>
+
+    <!-- Faint Dandelion Seeds / Dots -->
+    <svg style="position: absolute; top: 30%; right: 40%; width: 10px; height: 10px; opacity: 0.08;" viewBox="0 0 10 10"
+      fill="currentColor">
+      <circle cx="5" cy="5" r="5" />
     </svg>
-  </div>
-
-  <div class="bg-leaf leaf-4">
-    <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
-      <path d="M50 90 C 20 60, 20 40, 50 10 C 80 40, 80 60, 50 90 Z" />
-      <path d="M50 10 L 50 90" />
-      <path d="M50 30 L 65 40" />
-      <path d="M50 45 L 35 55" />
-      <path d="M50 60 L 68 70" />
-      <path d="M50 75 L 32 85" />
+    <svg style="position: absolute; top: 70%; left: 30%; width: 15px; height: 15px; opacity: 0.06;" viewBox="0 0 10 10"
+      fill="currentColor">
+      <circle cx="5" cy="5" r="5" />
+    </svg>
+    <svg style="position: absolute; top: 40%; left: 50%; width: 8px; height: 8px; opacity: 0.04;" viewBox="0 0 10 10"
+      fill="currentColor">
+      <circle cx="5" cy="5" r="5" />
     </svg>
   </div>
 
@@ -1496,7 +1571,7 @@
       <li><a href="#principles">Nguyên tắc</a></li>
       <li><a href="#summary">Tổng kết</a></li>
     </ul>
-    <span class="nav-badge">K70 · Data Science</span>
+    <span class="nav-badge">K70A-DS2 · Data Science</span>
   </nav>
 
   <!-- HERO -->
@@ -1504,32 +1579,37 @@
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
     <div class="hero-inner">
-      <div class="hero-tag">Sinh viên · UET ĐHQGHN · 2025–2026</div>
-      <h1 class="hero-name">
-        Đỗ Văn<br>
-        <span class="line2">Thái</span>
-      </h1>
-      <p class="hero-desc">
-        Sinh viên <strong>Khoa học Dữ liệu</strong> — nghiên cứu ứng dụng AI, kỹ thuật dữ liệu và
-        xây dựng tư duy phân tích trong kỷ nguyên trí tuệ nhân tạo.
-      </p>
-      <div class="hero-meta">
-        <div class="meta-item">
-          <span class="meta-label">MSSV</span>
-          <span class="meta-value">25024167</span>
+      <div class="hero-text">
+        <div class="hero-tag">Sinh viên · UET ĐHQGHN · 2025–2026</div>
+        <h1 class="hero-name">
+          Đỗ Văn<br>
+          <span class="line2">Thái</span>
+        </h1>
+        <p class="hero-desc">
+          Sinh viên <strong>khoa học dữ liệu</strong> — nghiên cứu ứng dụng AI, kỹ thuật dữ liệu và
+          xây dựng tư duy phân tích trong kỷ nguyên trí tuệ nhân tạo.
+        </p>
+        <div class="hero-meta">
+          <div class="meta-item">
+            <span class="meta-label">MSSV</span>
+            <span class="meta-value">25024167</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Trường</span>
+            <span class="meta-value">UET — ĐHQGHN</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Lớp</span>
+            <span class="meta-value">K70A-DS2</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Chuyên ngành</span>
+            <span class="meta-value">Data Science</span>
+          </div>
         </div>
-        <div class="meta-item">
-          <span class="meta-label">Trường</span>
-          <span class="meta-value">UET — ĐHQGHN</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">Lớp</span>
-          <span class="meta-value">K70-DS2</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">Chuyên ngành</span>
-          <span class="meta-value">Data Science</span>
-        </div>
+      </div>
+      <div class="hero-avatar">
+        <img src="images/avatar.png" alt="Đỗ Văn Thái - Avatar" />
       </div>
     </div>
     <div class="hero-scroll">
@@ -1541,11 +1621,85 @@
   <!-- DECORATIVE DIVIDER -->
   <div style="height:1px; background:var(--border);"></div>
 
+  <!-- ABOUT / INTRO -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-num">01</span>
+        <h2 class="section-title">Giới thiệu</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="about-layout">
+        <div class="about-text reveal">
+
+          <!-- Giới thiệu bản thân -->
+          <div class="intro-block">
+            <div class="intro-block-label">Về bản thân</div>
+            <p>
+              Tôi là <strong>Đỗ Văn Thái</strong>, sinh viên năm nhất chuyên ngành <strong>Khoa học Dữ liệu</strong>
+              (K70A-DS2) tại Trường Đại học Công nghệ, ĐHQGHN — một trong những ngôi trường công nghệ hàng đầu Việt Nam.
+              Tôi có niềm đam mê với việc hiểu và xử lý dữ liệu, từ những thao tác căn bản trên hệ điều hành đến việc
+              ứng dụng trí tuệ nhân tạo vào giải quyết bài toán thực tế.
+            </p>
+            <p>
+              Ngoài học tập, tôi quan tâm đến công nghệ mã nguồn mở, thiết kế giao diện số và các vấn đề đạo đức trong
+              phát triển AI — những lĩnh vực ngày càng quan trọng trong kỷ nguyên dữ liệu bùng nổ.
+            </p>
+          </div>
+
+          <!-- Mục tiêu học tập -->
+          <div class="intro-block">
+            <div class="intro-block-label">Mục tiêu học tập & Định hướng phát triển</div>
+            <ul class="intro-list">
+              <li>Xây dựng nền tảng vững chắc về kỹ thuật dữ liệu — từ quản lý tệp tin, khai thác thông tin học thuật
+                đến thiết kế data pipeline quy mô lớn.</li>
+              <li>Làm chủ các công cụ AI hiện đại (LLM, Generative AI) và phát triển kỹ năng Prompt Engineering để ứng
+                dụng hiệu quả vào học tập và công việc.</li>
+              <li>Rèn luyện tư duy hệ thống, tư duy phản biện và đạo đức công nghệ — những năng lực không thể thay thế
+                bằng AI.</li>
+            </ul>
+          </div>
+
+          <!-- Mục tiêu portfolio -->
+          <div class="intro-block">
+            <div class="intro-block-label">Mục tiêu của Portfolio</div>
+            <ul class="intro-list">
+              <li><strong>Thể hiện các kỹ năng số đã học</strong></li>
+              <li><strong>Lưu trữ sản phẩm cá nhân</strong></li>
+              <li><strong>Ghi lại hành trình học tập</strong></li>
+              <li><strong>Xây dựng thói quen portfolio tư duy</strong></li>
+            </ul>
+          </div>
+
+          <div class="about-stats">
+            <div class="stat-box">
+              <div class="stat-num">6</div>
+              <div class="stat-label">Bài tập hoàn thành</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">3</div>
+              <div class="stat-label">Công cụ AI tạo sinh</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">10</div>
+              <div class="stat-label">Tài liệu khoa học</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">6</div>
+              <div class="stat-label">Nguyên tắc AI Ethics</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PROJECTS -->
   <section id="projects">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-num">01</span>
+        <span class="section-num">02</span>
         <h2 class="section-title">Các dự án học tập</h2>
         <div class="section-line"></div>
       </div>
@@ -1655,7 +1809,7 @@
   <section id="skills">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-num">02</span>
+        <span class="section-num">03</span>
         <h2 class="section-title">Bản đồ kỹ năng</h2>
         <div class="section-line"></div>
       </div>
@@ -1749,79 +1903,7 @@
     </div>
   </section>
 
-  <!-- ABOUT / INTRO -->
-  <section id="about">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-num">03</span>
-        <h2 class="section-title">Giới thiệu</h2>
-        <div class="section-line"></div>
-      </div>
 
-      <div class="about-layout">
-        <div class="about-text reveal">
-
-          <!-- Giới thiệu bản thân -->
-          <div class="intro-block">
-            <div class="intro-block-label">Về bản thân</div>
-            <p>
-              Tôi là <strong>Đỗ Văn Thái</strong>, sinh viên năm nhất chuyên ngành <strong>Khoa học Dữ liệu</strong>
-              (K70-DS2) tại Trường Đại học Công nghệ, ĐHQGHN — một trong những ngôi trường công nghệ hàng đầu Việt Nam.
-              Tôi có niềm đam mê với việc hiểu và xử lý dữ liệu, từ những thao tác căn bản trên hệ điều hành đến việc
-              ứng dụng trí tuệ nhân tạo vào giải quyết bài toán thực tế.
-            </p>
-            <p>
-              Ngoài học tập, tôi quan tâm đến công nghệ mã nguồn mở, thiết kế giao diện số và các vấn đề đạo đức trong
-              phát triển AI — những lĩnh vực ngày càng quan trọng trong kỷ nguyên dữ liệu bùng nổ.
-            </p>
-          </div>
-
-          <!-- Mục tiêu học tập -->
-          <div class="intro-block">
-            <div class="intro-block-label">Mục tiêu học tập & Định hướng phát triển</div>
-            <ul class="intro-list">
-              <li>Xây dựng nền tảng vững chắc về kỹ thuật dữ liệu — từ quản lý tệp tin, khai thác thông tin học thuật
-                đến thiết kế data pipeline quy mô lớn.</li>
-              <li>Làm chủ các công cụ AI hiện đại (LLM, Generative AI) và phát triển kỹ năng Prompt Engineering để ứng
-                dụng hiệu quả vào học tập và công việc.</li>
-              <li>Rèn luyện tư duy hệ thống, tư duy phản biện và đạo đức công nghệ — những năng lực không thể thay thế
-                bằng AI.</li>
-            </ul>
-          </div>
-
-          <!-- Mục tiêu portfolio -->
-          <div class="intro-block">
-            <div class="intro-block-label">Mục tiêu của Portfolio</div>
-            <ul class="intro-list">
-              <li><strong>Thể hiện các kỹ năng số đã học</strong></li>
-              <li><strong>Lưu trữ sản phẩm cá nhân</strong></li>
-              <li><strong>Ghi lại hành trình học tập</strong></li>
-              <li><strong>Xây dựng thói quen portfolio tư duy</strong></li>
-            </ul>
-          </div>
-
-          <div class="about-stats">
-            <div class="stat-box">
-              <div class="stat-num">6</div>
-              <div class="stat-label">Bài tập hoàn thành</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-num">3</div>
-              <div class="stat-label">Công cụ AI tạo sinh</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-num">10</div>
-              <div class="stat-label">Tài liệu khoa học</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-num">6</div>
-              <div class="stat-label">Nguyên tắc AI Ethics</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- PRINCIPLES -->
   <section id="principles">
@@ -1905,14 +1987,29 @@
           <div class="intro-block-label">Trải nghiệm & Cảm nhận cá nhân</div>
           <p style="font-size:1rem; color:var(--muted); line-height:1.9; margin-bottom:1rem;">
             Hành trình xây dựng Portfolio này là một trong những trải nghiệm học tập có chiều sâu nhất tôi có được trong
-            năm học đầu tiên. Khác với những bài tập thông thường, portfolio yêu cầu tôi không chỉ <strong
-              style="color:var(--text);">làm đúng</strong> mà còn phải <strong style="color:var(--text);">hiểu tại sao
-              làm vậy</strong> và trình bày lại một cách có hệ thống.
+            năm học đầu tiên tại UET. Khác với các bài tập học phần đơn lẻ chỉ tập trung vào kiểm tra lý thuyết,
+            portfolio yêu cầu tôi không chỉ <strong style="color:var(--text);">làm đúng</strong> mà còn phải liên tục tự
+            phản biện để <strong style="color:var(--text);">hiểu rõ bản chất của từng thao tác</strong> và hệ thống hóa
+            lại toàn bộ kỹ năng số của bản thân.
+          </p>
+          <p style="font-size:1rem; color:var(--muted); line-height:1.9; margin-bottom:1rem;">
+            Điều tôi cảm nhận rõ nhất là sự liên kết mang tính hệ thống giữa các bài tập thực hành. Việc quản lý tệp tin
+            PascalCase ở Bài 1 tưởng chừng như đơn giản nhưng lại là nền tảng trực tiếp giúp tôi thiết lập không gian
+            cộng tác nhóm khoa học trên Trello và Google Drive ở Bài 4. Tương tự, kỹ năng tìm kiếm học thuật nâng cao ở
+            Bài 2 chính là bệ phóng giúp tôi có đủ dữ liệu kiểm chứng và viết prompt hiệu quả cho LLM ở Bài 3, từ đó
+            sáng tạo sản phẩm Infographic ở Bài 5 một cách bài bản.
+          </p>
+          <p style="font-size:1rem; color:var(--muted); line-height:1.9; margin-bottom:1rem;">
+            Đặc biệt, Bài tập 6 về <strong>đạo đức và liêm chính học thuật</strong> đã giúp tôi định hình một tư duy
+            hoàn toàn mới về mối quan hệ giữa con người và trí tuệ nhân tạo. Trong kỷ nguyên AI tạo sinh, năng lực của
+            một sinh viên khoa học dữ liệu không chỉ đo bằng việc viết code nhanh hay truy vấn giỏi, mà nằm ở khả năng
+            đặt câu hỏi thông minh, tư duy kiểm chứng độc lập và ý thức trách nhiệm đạo đức trước mỗi dòng lệnh được
+            chạy.
           </p>
           <p style="font-size:1rem; color:var(--muted); line-height:1.9;">
-            Điều tôi cảm nhận rõ nhất là sự kết nối giữa các bài tập — từ quản lý tệp tin (Bài 1) đến tổ chức dữ liệu
-            nhóm (Bài 4), từ tìm kiếm tài liệu (Bài 2) đến đạo đức sử dụng AI (Bài 6) — tất cả tạo thành một chuỗi kỹ
-            năng liên kết chặt chẽ, phản ánh tư duy của người làm việc với dữ liệu trong thế giới thực.
+            Tóm lại, portfolio này không chỉ là một trang web lưu trữ sản phẩm, mà là tấm gương phản chiếu sự trưởng
+            thành trong tư duy học thuật và phong cách làm việc chuyên nghiệp của tôi — một bước đệm vững chắc cho chặng
+            đường nghiên cứu chuyên sâu về khoa học dữ liệu phía trước.
           </p>
         </div>
 
@@ -1986,15 +2083,35 @@
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
+  <footer
+    style="position: relative; padding: 4rem 2rem; background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%); color: #0f172a; border-top: 1px solid rgba(0, 0, 0, 0.08); overflow: hidden;">
+    <!-- Decorative background elements -->
+    <div
+      style="position: absolute; top: -50px; left: -10%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, rgba(139,92,246,0) 70%); border-radius: 50%; pointer-events: none;">
+    </div>
+    <div
+      style="position: absolute; bottom: -100px; right: -5%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(56,189,248,0.06) 0%, rgba(56,189,248,0) 70%); border-radius: 50%; pointer-events: none;">
+    </div>
+    <div
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,%3Csvg width=%2220%22 height=%2220%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Ccircle cx=%222%22 cy=%222%22 r=%221%22 fill=%22rgba(0,0,0,0.03)%22/%3E%3C/svg%3E') repeat; pointer-events: none;">
+    </div>
+
+    <div class="footer-inner"
+      style="position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 2rem;">
       <div class="footer-left">
-        <h3>Đỗ Văn Thái</h3>
-        <p>Data Science · K70-DS2 · UET ĐHQGHN · 2025–2026</p>
+        <h3
+          style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: #0f172a; margin-bottom: 0.35rem;">
+          Đỗ Văn Thái</h3>
+        <p style="font-family: var(--font-mono); font-size: 0.72rem; color: #475569; letter-spacing: 0.02em;">Data
+          Science · K70A-DS2 · UET ĐHQGHN · 2025–2026</p>
       </div>
-      <div class="footer-right">
-        <div class="footer-mssv">MSSV: 25024167</div>
-        <div class="footer-school">Đại học Công nghệ — ĐHQGHN</div>
+      <div class="footer-right" style="text-align: right;">
+        <div class="footer-mssv"
+          style="font-family: var(--font-mono); font-size: 0.7rem; color: #64748b; letter-spacing: 0.05em; margin-bottom: 0.25rem;">
+          MSSV: 25024167</div>
+        <div class="footer-school"
+          style="font-family: var(--font-display); font-size: 0.85rem; font-weight: 600; color: #334155;">Đại học Công
+          nghệ — ĐHQGHN</div>
       </div>
     </div>
   </footer>
